@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoga Studio — Пространство Гармонии</title>
+    <link rel="stylesheet" href="css/joga.css">
+</head>
+<body>
+
+    <!-- === 1. ШАПКА САЙТА И НАВИГАЦИЯ === -->
+    <header class="yoga-header">
+        <div class="header-container">
+            <div class="logo" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+                <span class="logo-text">Yoga</span>
+                <div class="logo-symbol">☯</div>
+            </div>
+
+            <button class="burger-menu" id="burgerToggle">
+                <span class="burger-bar"></span>
+                <span class="burger-bar"></span>
+                <span class="burger-bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active">Главная</a>
+                <a href="#asanas-catalog" class="nav-link">Йога-асаны</a>
+                <a href="#recipes" class="nav-link">Полезные рецепты</a>
+                <a href="#types" class="nav-link">Виды йоги</a>
+                <a href="#types" class="nav-link">Форум</a>
+                <a href="#faq-section" class="nav-link">Горячие вопросы йоги</a>
+                <a href="#contact" class="nav-link">Контакты</a>
+            </nav>
+
+            <button class="cta-button header-cta">Записаться на занятие</button>
+            <button id="openLoginBtn" class="btn-auth">Войти</button>
+            
+        </div>
+    </header>
+
+    <!-- === 2. ГЛАВНАЯ СЕКЦИЯ (HERO БАННЕР) === -->
+    <section id="home" class="hero-section">
+        <div class="hero-image-side">
+            <img src="images/joga.png" alt="Студия йоги">
+        </div>
+        <div class="hero-text-side">
+            <div class="hero-container">
+                <h1 class="hero-title">Найдите свой баланс и внутренний покой</h1>
+                <p class="hero-subtitle">Современная студия йоги в центре города. Практики для тела, ума и души под руководством опытных мастеров.</p>
+                <div class="hero-buttons">
+                    <button class="cta-button hero-cta">Записаться на пробное</button>
+                    <a href="#asanas-catalog" class="btn-secondary">Смотреть асаны</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Модальное окно -->
+    <div id="loginModal" class="modal-overlay">
+        <div class="modal-content">
+        <button id="closeLoginBtn" class="modal-close">&times;</button>
+        <h3>Авторизация</h3>
+        <form id="loginForm">
+            <div class="form-group">
+        <label for="username">Логин</label>
+        <input type="text" id="username" name="username" placeholder="Введите логин" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Пароль</label>
+        <input type="password" id="password" name="password" placeholder="Введите пароль" required>
+      </div>
+      <button type="submit" class="btn-submit">Войти</button>
+    </form>
+  </div>
+</div>
+<form method="post" action="">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Отправить заявку</button>
+</form>
+    <!-- === 3. КАТАЛОГ ЙОГА-АСАН === -->
+    <section id="asanas-catalog" class="catalog-section">
+        <h2 class="catalog-title">Каталог асан в йоге</h2>
+
+        <!-- Блок поиска -->
+        <div class="search-container">
+            <div class="search-input-wrapper">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="searchInput" class="search-input" placeholder="Поиск асаны...">
+            </div>
+            <button class="search-button" id="searchBtn">Поиск</button>
+        </div>
+
+        <!-- Кнопки-теги фильтрации -->
+        <div class="tags-container">
+            <button class="tag-btn active" data-filter="all">Все</button>
+            <button class="tag-btn" data-filter="sitting">Асаны сидя</button>
+            <button class="tag-btn" data-filter="lying">Асаны лёжа</button>
+            <button class="tag-btn" data-filter="inverted">Перевёрнутые позы</button>
+            <button class="tag-btn" data-filter="standing">Асаны стоя</button>
+            <button class="tag-btn" data-filter="hand-balance">Балансы на руках</button>
+            <button class="tag-btn" data-filter="backbends">Прогибы</button> 
+            <button class="tag-btn" data-filter="forward-folds">Наклоны</button> 
+            <button class="tag-btn" data-filter="twists">Скручивания</button> 
+        </div> 
+        
+<div class="cards-grid" id="cardsGrid">
+    <!-- Карточка 1 -->
+    <div class="yoga-card" data-category="sitting">
+        <div class="card-image-box">
+            <img src="images/eka-pada.png" alt="Эка Пада Ширшасана">
+        </div>
+        <div class="card-content">
+            <h3 class="card-title">Эка Пада Ширшасана</h3>
+            <div class="card-category">Асаны сидя</div>
+            <p class="card-desc">Поза ноги за головой in йоге — как освоить Эка Пада Ширшасану: подводящие упражнения и техника безопасности.</p>
+            <a href="#article-eka" class="card-link">Читать статью →</a>
+        </div>
+    </div>
+
+    <!-- Карточка 2 -->
+    <div class="yoga-card" data-category="sitting">
+        <div class="card-image-box">
+            <img src="images/simhasana.png" alt="Симхасана">
+        </div>
+        <div class="card-content">
+            <h3 class="card-title">Симхасана</h3>
+            <div class="card-category">Асаны сидя</div>
+            <p class="card-desc">Пошаговая инструкция к выполнению Симхасаны: подводящие упражнения, точки контроля, упрощения для начинающих.</p>
+            <a href="#article-simha" class="card-link">Читать статью →</a>
+        </div>
+    </div>
+
+    <!-- Карточка 3 -->
+    <div class="yoga-card" data-category="sitting">
+        <div class="card-image-box">
+            <img src="images/siddhasana.png" alt="Сиддхасана">
+        </div>
+        <div class="card-content">
+            <h3 class="card-title">Сиддхасана</h3>
+            <div class="card-category">Асаны сидя</div>
+            <p class="card-desc">Пошаговая инструкция к выполнению Сиддхасаны: перевод названия, подводящие упражнения, точки контроля.</p>
+            <a href="#article-siddha" class="card-link">Читать статью →</a>
+        </div>
+    </div>
+
+    <!-- Карточка 4 -->
+    <div class="yoga-card" data-category="lying">
+        <div class="card-image-box">
+            <img src="images/Suptha3.png" alt="Супта Уттхита Хаста Падангуштхасана 3">
+        </div>
+        <div class="card-content">
+            <h3 class="card-title">Супта Уттхита Хаста Падангуштхасана 3</h3>
+            <div class="card-category">Асаны лёжа · Скручивания</div>
+            <p class="card-desc">Как освоить Супта Уттхита Хаста Падангуштхасану 3 — точки контроля, техника безопасности, польза для организма.</p>
+            <a href="#article-supta3" class="card-link">Читать статью →</a>
+        </div> 
+    </div>
+
+    <!-- Карточка 5 -->
+    <div class="yoga-card" data-category="lying">
+        <div class="card-image-box">
+            <img src="images/Suptha2.png" alt="Супта Уттхита Хаста Падангуштхасана 2">
+        </div>
+        <div class="card-content">
+            <h3 class="card-title">Супта Уттхита Хаста Падангуштхасана 2</h3>
+            <div class="card-category">Асаны лёжа</div>
+            <p class="card-desc">Супта Уттхита Хаста Падангуштхасана 2: подготовительные упражнения и пошаговая инструкция к выполнению.</p>
+            <a href="#article-supta2" class="card-link">Читать статью →</a>
+        </div> 
+    </div> 
+
+    <!-- Карточка 6 -->
+    <div class="yoga-card" data-category="lying">
+        <div class="card-image-box">
+            <img src="images/Suptha1.png" alt="Супта Уттхита Хаста Падангуштхасана 1">
+        </div>
+        <div class="card-content">
+            <h3 class="card-title">Супта Уттхита Хаста Падангуштхасана 1</h3>
+            <div class="card-category">Асаны лёжа</div>
+            <p class="card-desc">Как выполнять Супта Уттхита Хаста Падангуштхасану 1 — подробная техника, точки контроля и правила безопасности.</p>
+            <a href="#article-supta1" class="card-link">Читать статью →</a>
+        </div> 
+    </div>
+        <!-- Карточка 7 -->
+    <div class="yoga-card" data-category="inverted">
+        <div class="card-image-box">
+            <img src="images/adho_mukha.png" alt="Адхо Мукха Врикшасана">
+        </div>
+        <div class="card-content">
+            <h3 class="card-title">Адхо Мукха Врикшасана</h3>
+            <div class="card-category"> Балансы на руках. Силовые асаны. Перевёрнутые позы</div>
+            <p class="card-desc">«поза дерева вниз головой» или «перевёрнутое дерево». </p>
+            <a href="#article-adho_mukha" class="card-link">Читать статью →</a>
+        </div> 
+    </div>
+            <!-- Карточка 8 -->
+    <div class="yoga-card" data-category="inverted">
+        <div class="card-image-box">
+            <img src="images/halasana.png" alt="Халасана">
+        </div>
+        <div class="card-content">
+            <h3 class="card-title">Халасана-поза плуга</h3>
+            <div class="card-category"> Перевёрнутые позы</div>
+            <p class="card-desc">перевёрнутая асана в йоге, при выполнении которой из положения лёжа на спине ноги медленно переводятся за голову до касания пола. Тело в этой позе действительно напоминает плуг: ноги работают как ручки, а позвоночник образует дугу. 
+ </p>
+            <a href="#article-halasana" class="card-link">Читать статью →</a>
+        </div> 
+    </div>
+                <!-- Карточка 9 -->
+    <div class="yoga-card" data-category="inverted">
+        <div class="card-image-box">
+            <img src="images/pincha.jpg" alt="Пинча">
+        </div>
+        <div class="card-content">
+            <h3 class="card-title">Поза павлиньего пера-Пинча Маюрасана</h3>
+            <div class="card-category"> Перевёрнутые позы</div>
+            <p class="card-desc">Название поэтичное: когда павлины готовятся танцевать, они поднимают и расправляют хвостовые перья. В йоге эту асану сравнивают с таким моментом — тело в балансе тоже будто расправляет «перья», а вес удерживается на предплечьях, пока ноги и туловище подняты. 
+ </p>
+            <a href="#article-pincha" class="card-link">Читать статью →</a>
+        </div> 
+    </div>
+               <!-- Карточка 10 -->
+    <div class="yoga-card" data-category="standing">
+        <div class="card-image-box">
+            <img src="images/uttxita.png" alt="Утхитта">
+        </div>
+        <div class="card-content">
+            <h3 class="card-title">балансовая поза в йоге Уттхита Хаста Падангуштхасана 3</h3>
+            <div class="card-category"> Позы стоя</div>
+            <p class="card-desc"> Сочетание удержания равновесия на одной ноге с лёгким скручиванием. 
+ </p>
+            <a href="#article-uttxita" class="card-link">Читать статью →</a>
+        </div> 
+    </div>
+       <!-- Карточка 11 -->
+    <div class="yoga-card" data-category="standing">
+        <div class="card-image-box">
+            <img src="images/uthan.png" alt="Уттхан Приштхасана">
+        </div>
+        <div class="card-content">
+            <h3 class="card-title">"Поза ящерицы"- Уттхан Приштхасана</h3>
+            <div class="card-category"> Позы стоя</div>
+            <p class="card-desc"> Это прицельная работа с тазобедренными суставами. На первых этапах следует уделить внимание осевому вращению таза в разных положениях 
+ </p>
+            <a href="#article-uthan" class="card-link">Читать статью →</a>
+        </div> 
+    </div>
+     <!-- Карточка 12 -->
+    <div class="yoga-card" data-category="standing">
+        <div class="card-image-box">
+            <img src="images/Ckandasana.png" alt="поза бога Сканды в йоге
+Скандасана">
+        </div>
+        <div class="card-content">
+            <h3 class="card-title">Поза бога Сканды в йоге
+Скандасана</h3>
+            <div class="card-category"> Позы стоя</div>
+            <p class="card-desc"> Скандасана (поза бога Сканды) — глубокая асимметричная поза стоя, которая активно раскрывает тазобедренные суставы и развивает баланс.
+
+Сканда — одно из имён Картикеи (он же Муруган), бога войны и предводителя небесного воинства, сына Шивы и Парвати. Асану связывают с его образом: поза передаёт собранную силу и готовность к действию. 
+ </p>
+            <a href="#article-Skandasana" class="card-link">Читать статью →</a>
+        </div> 
+    </div>
+
+<!-- Экран полноценной статьи (Изначально скрыт в CSS) -->
+
+<template id="article-eka">
+    <article class="full-article">
+        <h1 style="font-size: 36px; margin-bottom: 10px;">Эка Пада Ширшасана</h1>
+        <div style="color: #888; margin-bottom: 20px;">Раздел: Асаны сидя</div>
+        <img src="images/eka-pada.png" alt="Эка Пада Ширшасана" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; margin-bottom: 20px;">
+        <p style="font-size: 18px; line-height: 1.6; color: #333;">Эка Пада Ширшасана = поза ноги за головой
+Эка — «одна»
+Пада — «нога», «стопа»
+Ширша — «голова»
+Асана — «положение тела» Польза
+✓
+увеличение подвижности тазобедренных суставов;
+✓
+вытяжение мышц спины, ягодиц и бёдер;
+✓
+улучшение кровообращения в области малого таза.</p>
+    </article>
+</template>
+
+<template id="article-simha">
+    <article class="full-article">
+        <h1 style="font-size: 36px; margin-bottom: 10px;">Симхасана (Поза льва)</h1>
+        <div style="color: #888; margin-bottom: 20px;">Раздел: Асаны сидя</div>
+        <img src="images/simhasana.png" alt="Симхасана" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; margin-bottom: 20px;">
+        <p style="font-size: 18px; line-height: 1.6; color: #333;">Симхасана = поза льва
+Симха — «лев»
+Асана — «положение тела» Польза
+✓
+увеличение подвижности тазобедренных суставов, голеностопов
+✓
+улучшение кровообращения в области горла и верхних дыхательных путей, профилактика ангины и других респираторных заболеваний.</p>
+    </article>
+</template>
+
+<template id="article-siddha">
+    <article class="full-article">
+        <h1 style="font-size: 36px; margin-bottom: 10px;">Сиддхасана (Совершенная поза)</h1>
+        <div style="color: #888; margin-bottom: 20px;">Раздел: Асаны сидя</div>
+        <img src="images/siddhasana.png" alt="Сиддхасана" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; margin-bottom: 20px;">
+        <p style="font-size: 18px; line-height: 1.6; color: #333;">Сиддхасана = совершенная поза, поза достижений
+Сиддха — «совершенный», «достигший»
+Асана — «положение тела» Польза
+✓
+увеличение подвижности тазобедренных суставов;
+✓
+улучшение кровообращения в области малого таза.</p>
+    </article>
+</template>
+<template id="article-supta3">
+    <article class="full-article">
+        <h1>Супта Уттхита Хаста Падангуштхасана 3</h1>
+        <div style="color: #888; margin-bottom: 20px;">Раздел: Асаны лёжа · Скручивания</div>
+        <img src="images/Suptha3.png" alt="Супта Уттхита Хаста Падангуштхасана 3" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; margin-bottom: 20px;">
+        <p>Перевод с санскрита
+    Супта Уттхита Хаста Падангуштхасана 3 = поза вытяжения с захватом рукой за большой палец стопы лёжа, вариант 3
+    Супта — «лёжа, лежать»
+    Уттхита — «вытяжение»
+    Хаста — «рука, кисть»
+    Падангуштха — «большой палец стопы»
+    Асана — «положение тела»</p>
+    <p>Польза
+✓
+улучшение кровообращения в брюшной области;
+✓
+улучшение подвижности позвоночника;
+✓
+стимуляция деятельности органов ЖКТ;
+✓
+профилактика варикоза;
+✓
+вытяжение задней поверхности ног;
+✓
+улучшение мобильности тазобедренных суставов.</p>
+    </article>
+</template>
+
+<template id="article-supta2">
+    <article class="full-article">
+        <h1>Супта Уттхита Хаста Падангуштхасана 2</h1>
+        <div style="color: #888; margin-bottom: 20px;">Раздел: Асаны лёжа</div>
+        <img src="images/Suptha2.png" alt="Супта Уттхита Хаста Падангуштхасана 2" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; margin-bottom: 20px;">
+        <p>Развернутый текст статьи про вторую вариацию асаны, работу с раскрытием внутренней поверхности бедер и подводящие асаны...</p>
+    </article>
+</template>
+
+<template id="article-supta1">
+    <article class="full-article">
+        <h1>Супта Уттхита Хаста Падангуштхасана 1</h1>
+        <div style="color: #888; margin-bottom: 20px;">Раздел: Асаны лёжа</div>
+        <img src="images/Suptha1.png" alt="Супта Уттхита Хаста Падангуштхасана 1" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; margin-bottom: 20px;">
+        <p>Развернутый текст статьи про первую вариацию асаны, интенсивную работу задней поверхности ног и правила использования йога-ремней...</p>
+    </article>
+</template>
+<template id="article-adho_mukha">
+    <article class="full-article">
+        <h1>Адхо Мукха Врикшасана = поза дерева лицом вниз</h1>
+        <div style="color: #888; margin-bottom: 20px;">Раздел: Перевернутые асаны</div>
+        <img src="images/adho_mukha.png" alt="Адхо Мукха Врикшасана" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; margin-bottom: 20px;">
+        <p>Адхо Мукха Врикшасана = поза дерева лицом вниз
+        Адхо — «направленный вниз»
+        Мукха — «лицо», «морда»
+        Врикша — «дерево»
+        Асана — «положение тела»</p>
+    </article>
+</template>
+<template id="article-halasana">
+    <article class="full-article">
+        <h1>Халасана = поза плуга Хала — «плуг», Асана — «положение тела»</h1>
+        <div style="color: #888; margin-bottom: 20px;">Раздел: Перевернутые асаны</div>
+         <img src="images/halasana.png" alt="Халасана" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; margin-bottom: 20px;">
+        <p>✓ стимулирует венозный возврат и лимфоотток;
+✓ тренирует вестибулярный аппарат (улучшает чувство равновесия и координацию движений);
+✓ улучшает пищеварение;
+✓ укрепляет мышечный корсет и повышает общий тонус организма;
+✓ вытягивает всю заднюю линию тела и успокаивает нервную систему.</p>
+    </article>
+</template>
+<template id="article-pincha">
+    <article class="full-article">
+        <h1>Пинча Маюрасана = поза павлиньего пера Пинча — «перо»,Маюра — «павлин»,Асана — «положение тела»</h1>
+        <div style="color: #888; margin-bottom: 20px;">Раздел: Перевернутые асаны</div>
+        <img src="images/pincha.jpg" alt="Пинча Маюрасана = поза павлиньего пера Пинча" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; margin-bottom: 20px;">
+        <p>✓ способствует развитию мышц спины и плечевого пояса;
+✓ улучшает подвижность позвоночника;
+✓ тренирует чувство равновесия и координации;
+✓ улучшает кровообращение в организме.</p>
+    </article>
+</template>
+<template id="article-uttxita">
+    <article class="full-article">
+        <h1>Уттхита Хаста Падангуштхасана 3 = поза вытяжения с захватом рукой за большой палец стопы, вариант 3
+Уттхита — «вытяжение»
+Хаста — «рука, кисть»
+Падангуштха — «большой палец стопы»
+Асана — «положение тела»</h1>
+        <div style="color: #888; margin-bottom: 20px;">Раздел: Перевернутые асаны</div>
+        <img src="images/uttxita.png" alt="Уттхита Хаста Падангуштхасана 3" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; margin-bottom: 20px;">
+        <p>✓
+улучшение кровообращение в брюшной области;
+✓
+улучшение подвижности позвоночника;
+✓
+стимуляция деятельности органов ЖКТ;
+✓
+укрепление мышц живота;
+✓
+укрепление мышц ног;
+✓
+развитие баланса и координации.</p>
+    </article>
+</template>
+<template id="article-uthan">
+    <article class="full-article">
+        <h1>поза ящерицы в йоге
+Уттхан Приштхасана Уттхан — «вытянутый»
+Приштха — «спина»
+Асана — «положение тела»</h1>
+        <div style="color: #888; margin-bottom: 20px;">Раздел: Перевернутые асаны</div>
+        <img src="images/uthan.png" alt="поза ящерицы в йогеУттхан Приштхасана Уттхан" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; margin-bottom: 20px;">
+        <p>✓
+увеличение подвижности тазобедренных суставов;
+✓
+улучшение кровообращения в области малого таза;
+✓
+укрепление мышц ног.</p>
+    </article>
+</template>
+<template id="article-Skandasana">
+    <article class="full-article">
+        <h1>Скандасана = поза бога Сканды
+Сканда — один из богов, сын Шивы и Парвати
+Асана — «положение тела»</h1>
+        <div style="color: #888; margin-bottom: 20px;">Раздел: Перевернутые асаны</div>
+        <img src="images/Ckandasana.png" alt="Скандасана = поза бога Сканды
+Сканда" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; margin-bottom: 20px;">
+        <p>✓
+увеличение подвижности тазобедренных суставов;
+✓
+вытяжение задней и внутренней поверхности ног;
+✓
+укрепление мышц бёдер и ягодиц;
+✓
+улучшение кровообращения в области малого таза.</p>
+    </article>
+</template>
+</div>
+</section>
+   <section id="articleSection" style="display: none; padding: 40px 20px; background: #fff; width: 100%; position: relative; z-index: 100;">
+        <div style="max-width: 800px; margin: 0 auto; text-align: left;">
+            <button id="backToCatalogBtn" style="background: none; border: none; font-size: 16px; cursor: pointer; color: #666; margin-bottom: 30px; display: block;">
+                ← Вернуться к каталогу асан
+            </button>
+            <div id="fullArticleBody" style="color: #2d3748; font-size: 16px; line-height: 1.6;"></div>
+        </div>
+    </section>
+    <!-- === 4. КАРУСЕЛЬ РЕЦЕПТОВ === -->
+    <div class="section-floor">
+    <section id="recipes" class="recipes-section">
+        <h2 class="recipes-title">Полезные рецепты для здоровья</h2>
+        <div class="carousel-container">
+            <button class="carousel-btn prev-btn" id="prevRecipe">&lt;</button>
+            <button class="carousel-btn next-btn" id="nextRecipe">&gt;</button>
+            
+            <div class="carousel-viewport">
+                <div class="carousel-track" id="recipesTrack">
+                    <!-- Рецепт 1 -->
+                    <div class="recipe-card">
+                        <div class="recipe-image-box"><img src="images/smusi.png" alt="Зеленый детокс-смузи"></div>
+                        <div class="recipe-content">
+                            <h3 class="recipe-card-title">Зеленый детокс-смузи</h3>
+                            <p class="recipe-desc">Заряд энергии на весь день: шпинат, банан, яблоко и семена чиа для идеального утра.</p>
+                            <div class="recipe-footer">
+                            <span class="recipe-time">🕒 5 мин</span>
+                            <a href="#recipe-smoothie" class="card-link">Посмотреть рецепт →</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Рецепт 2 -->
+                    <div class="recipe-card">
+                        <div class="recipe-image-box"><img src="images/kasha.png" alt="Овсяная каша"></div>
+                        <div class="recipe-content">
+                            <h3 class="recipe-card-title">Овсянка на кокосовом молоке</h3>
+                            <p class="recipe-desc">Питательный завтрак со свежими ягодами, орехами пекан и каплей кленового сиропа.</p>
+                            <div class="recipe-footer">
+                            <span class="recipe-time">🕒 15 мин</span>
+                            <a href="#recipe-porridge" class="card-link" >Посмотреть рецепт →</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Рецепт 3 -->
+                    <div class="recipe-card">
+                        <div class="recipe-image-box"><img src="images/kinoa.png" alt="Салат с киноа"></div>
+                        <div class="recipe-content">
+                            <h3 class="recipe-card-title">Теплый салат с киноа и запеченной тыквой</h3>
+                            <p class="recipe-desc">Легкий и сытный обед: киноа даёт белок и текстуру, а запечённая тыква — сладковатую нежность.</p>
+                            <div class="recipe-footer">
+                            <span class="recipe-time">🕒 25 мин</span>
+                            <a href="#recipe-salad" class="card-link">Посмотреть рецепт →</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Рецепт 4 -->
+                    <div class="recipe-card">
+                        <div class="recipe-image-box"><img src="images/tea.png" alt="Чай Масала"></div>
+                        <div class="recipe-content">
+                            <h3 class="recipe-card-title">Пряный чай Масала</h3>
+                            <p class="recipe-desc">Традиционный согревающий индийский напиток на молоке со специями и имбирем.</p>
+                            <div class="recipe-footer">
+                            <span class="recipe-time">🕒 10 мин</span>
+                            <a href="#recipe-tea" class="card-link">Посмотреть рецепт →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+
+    <!-- === 5. СЕКЦИЯ: ВИДЫ ЙОГИ === -->
+    <div class="section-floor">
+    <section id="types" class="yoga-types-section">
+        <h2 class="types-title">Направления йоги в нашей студии</h2>
+        <p class="types-subtitle">Выберите практику, которая подходит именно вашим целям и уровню подготовки</p>
+        <div class="types-grid">
+            <div class="type-card">
+                <div class="type-icon-wrapper"><span class="type-icon">🌸</span></div>
+                <h3 class="type-title">Хатха-йога</h3>
+                <p class="type-desc">Классическое направление, объединяющее статические асаны, дыхательные практики и расслабление.</p>
+                <span class="type-badge badge-easy">Для всех уровней</span>
+            </div>
+                <div class="type-card">
+            <div class="type-icon-wrapper"><span class="type-icon">🔥</span></div>
+            <h3 class="type-title">Виньяса-флоу</h3>
+            <p class="type-desc">Динамическая практика, где асаны плавно перетекают одна в другую в ритме дыхания.</p>
+            <span class="type-badge badge-medium">Средний уровень</span>
+        </div>
+
+        <!-- Направление 3: Инь-йога -->
+        <div class="type-card">
+            <div class="type-icon-wrapper"><span class="type-icon">✨</span></div>
+            <h3 class="type-title">Инь-йога</h3>
+            <p class="type-desc">Пассивная практика созерцания. Асаны выполняются сидя или лежа с длительным удержанием.</p>
+            <span class="type-badge badge-easy">Для новичков</span>
+        </div>
+
+        <!-- Направление 4: Медитация и Дыхание -->
+        <div class="type-card">
+            <div class="type-icon-wrapper"><span class="type-icon">🧘</span></div>
+            <h3 class="type-title">Медитация и Дыхание</h3>
+            <p class="type-desc">Занятие сфокусировано на дыхательных техниках. Помогает справиться со стрессом.</p>
+            <span class="type-badge badge-easy">Для всех уровней</span>
+        </div>
+    </div> <!-- Закрытие types-grid -->
+</section> <!-- Закрытие секции видов йоги -->
+</div>
+<!-- ==========================================================================
+   6. ГОРЯЧИЕ ВОПРОСЫ ПРО ЙОГУ (FAQ)
+   ========================================================================== -->
+    <div class="section-floor">
+   <section id="faq-section" class="faq-section">
+    <h2 class="faq-title">Горячие вопросы про йогу</h2>
+    <div class="faq-container">
+        <!-- Вопрос 1 -->
+        <div class="faq-item">
+            <button class="faq-question">
+                <span>Можно ли заниматься йогой, если у меня плохая растяжка?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Конечно! Йога — это не конечная точка гибкости, а процесс её достижения. Большинство асан легко адаптируются под любой уровень физической подготовки с помощью кубиков и ремней.</p>
+            </div>
+        </div>
+
+        <!-- Вопрос 2 -->
+        <div class="faq-item">
+            <button class="faq-question">
+                <span>Сколько раз в неделю нужно тренироваться для видимого эффекта?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Для старта достаточно 2–3 занятий в неделю по 45–60 минут. Главное в йоге — регулярность. Даже 15 минут ежедневной утренней разминки дадут результат быстрее, чем одна двухчасовая тренировка раз в две недели.</p>
+            </div>
+        </div>
+
+        <!-- Вопрос 3 -->
+        <div class="faq-item">
+            <button class="faq-question">
+                <span>Помогает ли йога похудеть или это только растяжка?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Динамические стили (Аштанга, Виньяса-флоу, Силовая йога) сжигают до 400–500 ккал за сессию и отлично укрепляют мышечный корсет. Кроме того, йога снижает уровень кортизола (гормона стресса), что предотвращает переедание.</p>
+            </div>
+        </div>
+
+        <!-- Вопрос 4 -->
+        <div class="faq-item">
+            <button class="faq-question">
+                <span>Что лучше выбрать новичку: Хатха или Кундалини?</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Новичкам идеальнее всего начать с Хатха-йоги. Она даёт базовое понимание геометрии асан, отстройку дыхания и безопасную нагрузку. Кундалини больше сфокусирована на энергетических практиках и медитациях.</p>
+            </div>
+        </div>
+    </div>
+</section>
+</div> 
+<!-- === ФУТЕР И КОНТАКТЫ === -->
+<footer id="contact" class="yoga-footer-section">
+    <div class="footer-container">
+        
+        <!-- Колонка 1: О нас -->
+        <div class="footer-column footer-about">
+            <div class="logo">
+                <span class="logo-text">Yoga</span>
+                <div class="logo-symbol">☯</div>
+            </div>
+            <p class="footer-about-text">Пространство гармонии, здоровья и осознанности. Помогаем обрести баланс души и тела.</p>
+            <div class="footer-socials">
+                <a href="#" class="social-link">Telegram</a>
+                <a href="#" class="social-link">VKontakte</a>
+                <a href="#" class="social-link">Instagram</a>
+            </div>
+        </div>
+
+        <!-- Колонка 2: Навигация -->
+        <div class="footer-column footer-links">
+            <h3 class="footer-title">Навигация</h3>
+            <ul class="footer-links-list">
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#asanas-catalog">Йога-асаны</a></li>
+                <li><a href="#recipes">Полезные рецепты</a></li>
+                <li><a href="#types">Виды йоги</a></li>
+                <li><a href="#types">Форум</a></li>
+                <li><a href="#faq-section">Горячие вопросы про йогу</a></li>
+            </ul>
+        </div>
+
+        <!-- Колонка 3: Контакты -->
+        <div class="footer-column footer-contacts">
+            <h3 class="footer-title">Контакты</h3>
+            <ul class="contact-info-list">
+                <li><span class="contact-icon">📞</span> <a href="tel:+79991234567" class="contact-phone">+7 (999) 123-45-67</a></li>
+                <li><span class="contact-icon">✉️</span> <a href="mailto:info@yogastudio.ru">info@yogastudio.ru</a></li>
+                <li><span class="contact-icon">📍</span> г. Москва, ул. Лесная, д. 20</li>
+                <li><span class="contact-icon">🕒</span> Пн-Вс: с 07:00 до 22:00</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Копирайт -->
+    <div class="footer-bottom">
+        <p>&copy; 2026 Yoga Studio. Все права защищены. Разработано с любовью к йоге.</p>
+    </div>
+</footer>
+
+<!-- === МОДАЛЬНЫЕ ОКНА И КНОПКА НАВЕРХ === -->
+
+<!-- Окно 1: Форма записи (работает отдельно) -->
+<div id="bookingModal" class="modal">
+    <div class="modal-content booking-modal-content">
+        <span class="close-modal" id="closeBookingModal">&times;</span>
+        <h2>Записаться на занятие</h2>
+        <p class="modal-subtitle">Оставьте ваши контакты, и мы подберем идеальное время для тренировки</p>
+        
+        <form id="bookingForm" onsubmit="handleBookingSubmit(event)">
+            <div class="form-group">
+                <label for="userName">Ваше имя</label>
+                <input type="text" id="userName" required placeholder="Иван Иванов">
+            </div>
+            <div class="form-group">
+                <label for="userPhone">Номер телефона</label>
+                <input type="tel" id="userPhone" required placeholder="+7 (999) 999-99-99">
+            </div>
+            <div class="form-group">
+                <label for="yogaType">Направление</label>
+                <select id="yogaType">
+                    <option value="Йога для начинающих">Йога для начинающих</option>
+                    <option value="Хатха-йога">Хатха-йога</option>
+                    <option value="Виньяса-флоу">Виньяса-флоу</option>
+                    <option value="Медитация и дыхание">Медитация и дыхание</option>
+                </select>
+            </div>
+            <button type="submit" class="form-submit-btn">Отправить заявку</button>
+        </form>
+    </div>
+</div>
+<!-- Окно 2: Отдельное модальное окно ТОЛЬКО для рецептов блога -->
+<div id="recipeModal" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center;">
+    <div class="modal-content" style="background: #fff; padding: 30px; border-radius: 12px; max-width: 600px; width: 90%; margin: 10% auto; position: relative; color: #333; max-height: 85vh; overflow-y: auto;">
+        <span class="close-modal" id="closeRecipeModal" style="position: absolute; top: 15px; right: 20px; font-size: 28px; cursor: pointer;">&times;</span>
+        <div id="recipeModalBody"></div>
+    </div>
+</div>
+
+<!-- Крупная светящаяся кнопка "Наверх" справа -->
+<button class="scroll-to-top-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})" title="Наверх">▲</button>
+
+
+<!-- === ТЕКСТЫ-ШАБЛОНЫ ДЛЯ ВСЕХ ЧЕТЫРЕХ РЕЦЕПТОВ КАРАУСЕЛИ === -->
+
+<!-- Шаблон 1: Смузи -->
+<template id="recipe-smoothie">
+    <h2>🟢 Зеленый детокс-смузи</h2>
+    <p class="subtitle">Идеальный напиток для очищения организма, богатый клетчаткой и антиоксидантами.</p>
+    
+    <!-- Блок нутриентов -->
+    <div class="nutrition-badge">
+        <span>🔥 210 ккал</span> | 
+        <span>🥩 Б: 4.5г</span> | 
+        <span>🥑 Ж: 2.5г</span> | 
+        <span>🌾 У: 42г</span>
+    </div>
+    
+    <h3>📋 Ингредиенты:</h3>
+    <ul>
+        <li>🌿 свежий шпинат — 1 горсть;</li>
+        <li>🍌 спелый банан — 1 шт;</li>
+        <li>🍏 зеленое яблоко — 1/2 шт;</li>
+        <li>🥛 вода или растительное молоко — 150 мл;</li>
+        <li>🌱 семена чиа — 1 ч. л.</li>
+    </ul>
+
+    <h3>🥣 Приготовление:</h3>
+    <ol>
+        <li>Промойте шпинат и очистите фрукты от кожуры.</li>
+        <li>Нарежьте яблоко и банан небольшими кусочками.</li>
+        <li>Поместите все ингредиенты в чашу блендера и взбейте до однородности.</li>
+        <li>Перелейте в стакан, украсьте семенами чиа.</li>
+    </ol>
+</template>
+<template id="recipe-porridge">
+    <h2>🥥 Овсянка на кокосовом молоке</h2>
+    <p class="subtitle">Питательный и нежный завтрак со свежими ягодами и орехами пекан.</p>
+    
+    <!-- Блок нутриентов -->
+    <div class="nutrition-badge">
+        <span>🔥 380 ккал</span> | 
+        <span>🥩 Б: 8г</span> | 
+        <span>🥑 Ж: 18г</span> | 
+        <span>🌾 У: 46г</span>
+    </div>
+    
+    <h3>📋 Ингредиенты:</h3>
+    <ul>
+        <li>🌾 овсяные хлопья долгого варения — 50–60 г;</li>
+        <li>🥥 кокосовое молоко — 150 мл;</li>
+        <li>💧 вода — 100 мл;</li>
+        <li>🧂 соль — щепотка;</li>
+        <li>🍁 кленовый сироп или мёд — 1 ч. л.;</li>
+        <li>🌰 орехи пекан — горсть;</li>
+        <li>🍓 свежие ягоды (малина, голубика) — для подачи.</li>
+    </ul>
+
+    <h3>🥣 Приготовление:</h3>
+    <ol>
+        <li>В сотейнике соедините воду и кокосовое молоко, доведите до кипения.</li>
+        <li>Всыпьте хлопья, добавьте соль, убавьте огонь и варите 10–12 минут, помешивая.</li>
+        <li>Снимите с огня, накройте крышкой и дайте настояться 3 минуты.</li>
+        <li>Переложите в тарелку, украсьте ягодами, орехами и полейте сиропом.</li>
+    </ol>
+</template>
+<template id="recipe-salad">
+    <h2>🎃 Теплый салат с киноа и запеченной тыквой</h2>
+    <p class="subtitle">Сбалансированное и легкое белковое блюдо для восстановления сил после йоги.</p>
+    
+    <!-- Блок нутриентов -->
+    <div class="nutrition-badge">
+        <span>🔥 290 ккал</span> | 
+        <span>🥩 Б: 6г</span> | 
+        <span>🥑 Ж: 14г</span> | 
+        <span>🌾 У: 35г</span>
+    </div>
+    
+    <h3>📋 Ингредиенты (на 2 порции):</h3>
+    <ul>
+        <li>🌾 киноа — 100 г;</li>
+        <li>🎃 тыква — 200–250 г;</li>
+        <li>🍾 оливковое масло — 2–3 ст. л.;</li>
+        <li>🍯 мёд или кленовый сироп — 1 ч. л.;</li>
+        <li>🌿 смесь сушёных трав (тимьян, розмарин) — 1 ч. л.;</li>
+        <li>🧂 соль, чёрный перец — по вкусу;</li>
+        <li>🌻 тыквенные семечки — 1–2 ст. л.;</li>
+        <li>🍃 свежая зелень (руккола, кинза) — для подачи.</li>
+    </ul>
+
+    <h3>🥣 Приготовление:</h3>
+    <ol>
+        <li><strong>Тыква:</strong> Нарежьте кубиками, сбрызните маслом, посыпьте травами и запекайте при 200 °C около 20 минут.</li>
+        <li><strong>Киноа:</strong> Промойте, залейте водой 1:2, посолите и варите под крышкой 15 минут.</li>
+        <li><strong>Сборка:</strong> Смешайте теплую киноа, тыкву, мёд и оставшееся масло. Посыпьте семечками и зеленью.</li>
+    </ol>
+</template>
+    <template id="recipe-tea">
+    <h2>☕ Пряный чай Масала</h2>
+    <p class="subtitle">Традиционный индийский напиток, который отлично согревает, тонизирует и улучшает пищеварение.</p>
+    
+    <!-- Блок нутриентов -->
+    <div class="nutrition-badge">
+        <span>🔥 120 ккал</span> | 
+        <span>🥩 Б: 3.5г</span> | 
+        <span>🥑 Ж: 4г</span> | 
+        <span>🌾 У: 17.5г</span>
+    </div>
+    
+    <h3>📋 Ингредиенты (на 2 порции):</h3>
+    <ul>
+        <li>🍂 крупнолистовой черный чай — 2 ч. л. (лучше Ассам);</li>
+        <li>🥛 молоко (коровье или растительное) — 250 мл;</li>
+        <li>💧 вода — 250 мл;</li>
+        <li>🍯 подсластитель (коричневый сахар или мёд) — 1–2 ч. л.;</li>
+        <li>🌱 свежий корень имбиря — 1–2 см;</li>
+        <li>🌱 палочка корицы — 1 шт;</li>
+        <li>⭐ звездочка бадьяна — 1 шт;</li>
+        <li>🟢 коробочки зеленого кардамона — 3–4 шт;</li>
+        <li>🍂 гвоздика — 2–3 шт;</li>
+        <li>🌶️ черный перец горошком — 2–3 шт (для легкой остроты).</li>
+    </ul>
+
+    <h3>🥣 Приготовление:</h3>
+    <ol>
+        <li><strong>Подготовьте специи.</strong> Кардамон слегка раздавите плоской стороной ножа, чтобы раскрыть коробочки. Имбирь натрите на мелкой терке или мелко нарежьте.</li>
+        <li><strong>Сварите пряную основу.</strong> В сотейник налейте воду, добавьте все специи и имбирь. Доведите до кипения и варите на слабом огне 3–5 минут, чтобы вода вобрала ароматы.</li>
+        <li><strong>Добавьте чай и молоко.</strong> Всыпьте черный чай и влейте молоко. Снова доведите смесь практически до кипения (но не кипятите бурно, чтобы молоко не свернулось).</li>
+        <li><strong>Настоять и подать.</strong> Добавьте сахар или мёд, перемешайте, снимите сотейник с огня. Накройте крышкой и дайте чаю настояться 3 минуты. Процедите через ситечко прямо в чашки и подавайте горячим.</li>
+    </ol>
+</template>
+<script src="js/joga.js"></script>
+<div id="articleModal" class="modal-overlay">
+    <div class="modal-content">
+        <button class="modal-close-btn">&times;</button>
+        <!-- Сюда JS будет вставлять статью из вашего шаблона -->
+        <div id="modalBody" class="modal-text"></div>
+    </div>
+</div>
+
+</body>
+</html>
