@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Успешная запись</title>
+    <link rel="stylesheet" href="{% static 'css/joga.css' %}">
+</head>
+<body>
+
+    {% include "header.html" %}
+
+    <main style="text-align: center; padding: 100px 20px;">
+        <h1 style="color: #4CAF50; font-size: 36px; margin-bottom: 20px;">Спасибо, {{ name }}!</h1>
+        <p style="font-size: 18px; color: #555; margin-bottom: 30px;">
+            Ваша заявка успешно принята. Наш администратор свяжется с вами в ближайшее время.
+        </p>
+        <a href="{% url 'joga' %}" class="cta-button" style="text-decoration: none; padding: 12px 24px; background: #333; color: #fff; border-radius: 4px;">
+            Вернуться на главную
+        </a>
+    </main>
+
+</body>
+</html>

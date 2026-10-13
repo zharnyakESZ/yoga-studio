@@ -393,7 +393,7 @@ window.handleBookingSubmit = function(event) {
         document.body.style.overflow = '';
     }
 }
-const openBtn = document.getElementById('openLoginBtn');
+const openBtn = document.querySelector('.login-btn');
 const closeBtn = document.getElementById('closeLoginBtn');
 const modal = document.getElementById('loginModal');
 const form = document.getElementById('loginForm');
