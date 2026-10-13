@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate
-from .forms import LoginForm, JogaForm
+from django.contrib.auth import authenticate, login
+from forms import LoginForm, JogaForm
 
 def login_view(request):
     if request.method == 'POST':

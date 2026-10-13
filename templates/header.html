@@ -1,0 +1,14 @@
+<div class="yoga-header-menu">
+    <!-- Ваши стандартные ссылки меню -->
+    <a href="/">Главная</a>
+    <a href="/forum/">Форум</a>
+
+    {% if user.is_authenticated %}
+        <!-- Если вошел — пишем логин и кнопку выхода -->
+        <span class="username-link">{{ user.username }}</span>
+        <a href="{% url 'logout' %}" class="logout-link">Выйти</a>
+    {% else %}
+        <!-- Если не вошел — показываем кнопку входа -->
+        <a href="{% url 'login' %}" class="login-btn">Войти</a>
+    {% endif %}
+</div>
